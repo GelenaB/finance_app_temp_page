@@ -1,19 +1,49 @@
 <!DOCTYPE HTML>
-<html lang="lv">
+<html lang="en">
 
 <head>
 	<title>Sole Trader</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<!-- <link rel="icon" href="favicon.ico" type="image/gif" sizes="16x16"> -->
 	<link rel="stylesheet" href="styles.css" />
-	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-	<link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="assets/css/flipclock.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="assets/js/flipclock.min.js"></script>
 </head>
 
 <body>
-	<h1>COMING SOON</h1>
+	<div class="page-container">
+		<h1>COMING SOON</h1>
+		<div>
+			<div class="container">
+				<div class="flip-clock">
+
+					<div class="clock" style="margin:2em;"></div>
+
+					<script type="text/javascript">
+						var clock;
+
+						$(document).ready(function () {
+
+							// Grab the current date
+							var currentDate = new Date();
+
+							// Set some date in the past. In this case, it's always been since Jan 1
+							var pastDate = new Date(currentDate.getFullYear() + 1, 0, 1);
+
+							// Calculate the difference in seconds between the future and current date
+							var diff = pastDate.getTime() / 1000 - currentDate.getTime() / 1000;
+
+							// Instantiate a coutdown FlipClock
+							clock = $('.clock').FlipClock(diff, {
+								clockFace: 'DailyCounter',
+								countdown: true
+							});
+						});
+					</script>
+				</div>
+			</div>
+		</div>
 	</div>
 </body>
 
